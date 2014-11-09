@@ -93,7 +93,7 @@ BOARD_SEPOLICY_UNION += \
     genfs_contexts \
     te_macros
 
-PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
+PRODUCT_BOOT_JARS := $(PRODUCT_BOOT_JARS)
 
 # Graphics
 BOARD_EGL_CFG := device/oppo/msm8974-common/configs/egl.cfg

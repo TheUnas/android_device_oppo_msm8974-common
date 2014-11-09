@@ -150,4 +150,4 @@ f
 /data/connectivity(/.*)?               u:object_r:cne_data_file:s0
 
 # Disk encryption
-#/dev/fscklogs(/.*)?                    u:object_r:fscklogs:s0
+/dev/fscklogs(/.*)?                    u:object_r:fscklogs:s0
