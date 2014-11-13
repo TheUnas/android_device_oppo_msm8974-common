@@ -36,6 +36,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := krait
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := device/oppo/msm8974-common/mkbootimg.mk
@@ -60,40 +61,34 @@ TARGET_QCOM_MEDIA_VARIANT := caf-new
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
+AUDIO_FEATURE_ENABLED_COMPRESS_CAPTURE := true
+AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
+AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
+AUDIO_FEATURE_ENABLED_EXTN_POST_PROC := true
+AUDIO_FEATURE_ENABLED_FLUENCE := true
+AUDIO_FEATURE_ENABLED_HFP := true
+AUDIO_FEATURE_ENABLED_INCALL_MUSIC := true
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+AUDIO_FEATURE_ENABLED_PCM_OFFLOAD := true
+AUDIO_FEATURE_ENABLED_PCM_OFFLOAD_24 := true
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
+AUDIO_FEATURE_ENABLED_USBAUDIO := true
 AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
 AUDIO_FEATURE_DISABLED_FM := true
+#BOARD_USES_EXTN_AUDIO_POLICY_MANAGER := true
 #AUDIO_FEATURE_ENABLED_MULTIPLE_TUNNEL := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
+QCOM_BT_USE_SMD_TTY := true
+BLUETOOTH_HCI_USE_MCT := true
 
 # Charger
 BOARD_CHARGER_RES := device/oppo/msm8974-common/charger/images
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += device/oppo/msm8974-common/cmhw
-
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-   device/oppo/msm8974-common/sepolicy
-
-# The list below is order dependent
-BOARD_SEPOLICY_UNION += \
-    file.te \
-    device.te \
-    app.te \
-    cne.te \
-    qmux.te \
-    mpdecision.te \
-    thermald.te \
-    ueventd.te \
-    vold.te \
-    file_contexts \
-    genfs_contexts \
-    te_macros
-
-PRODUCT_BOOT_JARS := $(PRODUCT_BOOT_JARS)
 
 # Graphics
 BOARD_EGL_CFG := device/oppo/msm8974-common/configs/egl.cfg
@@ -168,6 +163,12 @@ TARGET_USES_CPU_BOOST_HINT := true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # inherit from the proprietary version
 ifneq ($(QCPATH),)
