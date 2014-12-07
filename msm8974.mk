@@ -17,33 +17,33 @@
 ifneq ($(QCPATH),)
 $(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor.mk)
 endif
-
+#TODO
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS := \
+    device/oppo/msm8974-common/overlay
 
 # Config scripts
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh
 
-# Ramdisk
-PRODUCT_PACKAGES += \
-    init.qcom-common.rc \
-    init.recovery.qcom.rc \
-    ueventd.qcom.rc
+PRODUCT_COPY_FILES += \
+    device/oppo/msm8974-common/rootdir/etc/init.qcom-common.rc:root/init.qcom-common.rc \
+    device/oppo/msm8974-common/rootdir/etc/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+    device/oppo/msm8974-common/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    $(LOCAL_PATH)/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_General_cal.acdb:system/etc/acdbdata/MTP/MTP_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Global_cal.acdb:system/etc/acdbdata/MTP/MTP_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP/MTP_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
+    device/oppo/msm8974-common/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    device/oppo/msm8974-common/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    device/oppo/msm8974-common/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
+    device/oppo/msm8974-common/audio/acdb/MTP_General_cal.acdb:system/etc/acdbdata/MTP/MTP_General_cal.acdb \
+    device/oppo/msm8974-common/audio/acdb/MTP_Global_cal.acdb:system/etc/acdbdata/MTP/MTP_Global_cal.acdb \
+    device/oppo/msm8974-common/audio/acdb/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP/MTP_Handset_cal.acdb \
+    device/oppo/msm8974-common/audio/acdb/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
+    device/oppo/msm8974-common/audio/acdb/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
+    device/oppo/msm8974-common/audio/acdb/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 
 PRODUCT_PACKAGES += \
     audiod \
@@ -105,11 +105,11 @@ PRODUCT_PACKAGES += \
     gps.msm8974
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
-    $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
-    $(LOCAL_PATH)/gps/quipc.conf:system/etc/quipc.conf \
-    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
+    device/oppo/msm8974-common/gps/gps.conf:system/etc/gps.conf \
+    device/oppo/msm8974-common/gps/flp.conf:system/etc/flp.conf \
+    device/oppo/msm8974-common/gps/izat.conf:system/etc/izat.conf \
+    device/oppo/msm8974-common/gps/quipc.conf:system/etc/quipc.conf \
+    device/oppo/msm8974-common/gps/sap.conf:system/etc/sap.conf
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -117,7 +117,7 @@ PRODUCT_PACKAGES += \
 
 # IPC router config
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+    device/oppo/msm8974-common/configs/sec_config:system/etc/sec_config
 
 # Media profile
 PRODUCT_COPY_FILES += \
@@ -125,8 +125,8 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+    device/oppo/msm8974-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/oppo/msm8974-common/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Media
 PRODUCT_PACKAGES += \
